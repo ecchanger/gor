@@ -262,7 +262,8 @@ func BuildPlayload(root string) (payload map[string]interface{}, err error) {
 
 		_year, _month, _ := post["_date"].(time.Time).Date()
 		year := fmt.Sprintf("%v", _year)
-		month := _month.String()
+		rs := []rune(_month.String())
+		month := string(rs[0:3])
 
 		_yearc := _collated[year]
 		if _yearc == nil {

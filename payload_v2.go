@@ -253,7 +253,8 @@ func (webSite *WebSite) LoadPosts() {
 
 		_year, _month, _ := post._Date.Date()
 		year := fmt.Sprintf("%v", _year)
-		month := _month.String()
+		rs := []rune(_month.String())
+		month := string(rs[0:3])
 
 		_yearc := _collated[year]
 		if _yearc == nil {
